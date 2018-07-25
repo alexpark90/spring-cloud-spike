@@ -1,15 +1,22 @@
 server:
-  port: 8081
+  port: 9999
 spring:
   cloud:
     stream:
+      schemaRegistryClient:
+        endpoint: http://localhost:8081
+      schema:
+        avro:
+          dynamicSchemaGenerationEnabled: true
+          schema-locations: classpath:avro/foo.avsc
       bindings:
         sample-source:
           destination: testtock
         input:
           destination: testtock
+          content-type: application/*+avro
         output:
           destination: xformed
-          content-type: application/json
+          content-type: application/*+avro
         sample-sink:
           destination: xformed

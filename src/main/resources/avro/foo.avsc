@@ -1,0 +1,8 @@
+{
+  "namespace" : "com.alexpark",
+  "type" : "record",
+  "name" : "Foo",
+  "fields" : [
+    {"name":"value","type":"string"}
+  ]
+}
